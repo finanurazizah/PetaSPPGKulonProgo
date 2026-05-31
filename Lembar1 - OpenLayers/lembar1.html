@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="./resources/ol.css">
+    <link rel="stylesheet" href="resources/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/horsey.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/ol-search-layer.min.css">
+    <link href="resources/photon-geocoder-autocomplete.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
+    <link rel="stylesheet" href="./resources/qgis2web.css">
+    <style>
+        html,
+        body {
+            background-color: #ffffff;
+        }
+
+        .ol-control>* {
+            background-color: #f8f8f8 !important;
+            color: #444444 !important;
+            border-radius: 0px;
+        }
+
+        .ol-attribution a,
+        .gcd-gl-input::placeholder,
+        .search-layer-input-search::placeholder {
+            color: #444444 !important;
+        }
+
+        .search-layer-input-search {
+            background-color: #f8f8f8 !important;
+        }
+
+        .ol-control>*:focus,
+        .ol-control>*:hover {
+            background-color: rgba(248, 248, 248, 0.7) !important;
+        }
+
+        .ol-control {
+            background-color: rgba(255, 255, 255, .4) !important;
+            padding: 2px !important;
+        }
+    </style>
+
+    <style>
+        html,
+        body,
+        #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <title>Pemetaan Jangkauan Pelayanan Satuan Pelayanan Pemenuhan Gizi (SPPG) di Kabupaten Kulon Progo</title>
+    <!-- Intro.js -->
+    <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+</head>
+
+<body>
+    <div id="guideWrapper">
+        <button id="guideBtn" onclick="mulaiPanduan()">
+            ?
+        </button>
+    </div>
+    <div id="map">
+        <div id="legend">
+            <h4>Legenda</h4>
+            <div class="legend-item">
+                <img src="styles/legend/SPPG_5_32.png" class="legend-img-sppg">
+                Titik SPPG
+            </div>
+            <div class="legend-item">
+                <img src="styles/legend/Sekolah_2_4.png" class="legend-img-sekolah">
+                Titik Sekolah
+            </div>
+            <div class="legend-item">
+                <img src="styles/legend/PelayananSPPG_3_4.png" class="legend-img-pelayanan">
+                Pelayanan SPPG
+            </div>
+            <div class="legend-item">
+                <img src="styles/legend/BatasKapanewon_1.png" class="legend-img-batas">
+                Batas Kecamatan
+            </div>
+        </div>
+    </div>
+    <div id="mapGuideCenter"></div>
+
+    <div id="popup" class="ol-popup">
+        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content"></div>
+    </div>
+    </div>
+    <div id="popup" class="ol-popup">
+        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+        <div id="popup-content"></div>
+    </div>
+    </div>
+
+    <script src="resources/qgis2web_expressions.js"></script>
+    <script src="./resources/functions.js"></script>
+    <script src="./resources/ol.js"></script>
+    <script src="resources/horsey.min.js"></script>
+    <script src="resources/ol-search-layer.js"></script>
+    <script src="./resources/ol-layerswitcher.js"></script>
+    <script src="resources/photon-geocoder-autocomplete.min.js"></script>
+    <script src="layers/BatasKapanewon_1.js"></script>
+    <script src="layers/Sekolah_2.js"></script>
+    <script src="layers/PelayananSPPG_3.js"></script>
+    <script src="layers/Sekolah_SPPG_4.js"></script>
+    <script src="layers/SPPG_5.js"></script>
+    <script src="styles/BatasKapanewon_1_style.js"></script>
+    <script src="styles/Sekolah_2_style.js"></script>
+    <script src="styles/PelayananSPPG_3_style.js"></script>
+    <script src="styles/Sekolah_SPPG_4_style.js"></script>
+    <script src="styles/SPPG_5_style.js"></script>
+    <script src="./layers/layers.js"></script>
+    <script src="./resources/Autolinker.min.js"></script>
+    <script src="./resources/qgis2web.js"></script>
+    <!-- Intro.js -->
+    <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+
+    <script>
+        function mulaiPanduan() {
+            let intro = introJs();
+            intro.setOptions({
+                nextLabel: 'Lanjut',
+                prevLabel: 'Kembali',
+                doneLabel: 'Selesai',
+                skipLabel: 'Lewati',
+                showProgress: false,
+                showBullets: true,
+                exitOnOverlayClick: false,
+                scrollToElement: true,
+                tooltipPosition: 'right'
+            });
+            intro.start();
+        }
+        window.onload = function () {
+            // Tombol zoom
+            let zoom = document.querySelector('.ol-zoom');
+            if (zoom) {
+                zoom.setAttribute(
+                    'data-intro',
+                    'Gunakan tombol ini untuk memperbesar atau memperkecil peta.'
+                );
+                zoom.setAttribute('data-step', '1');
+            }
+
+            // Layer switcher
+            let layer = document.querySelector('.layer-switcher');
+            if (layer) {
+                layer.setAttribute(
+                    'data-intro',
+                    'Klik <b>OFF</b> untuk menyembunyikan seluruh layer, <b>ON</b> untuk menampilkan seluruh layer, dan <b>ikon berwarna biru</b> untuk menampilkan layer tertentu.'
+                );
+                layer.setAttribute('data-step', '2');
+            }
+
+            // Legenda
+            let legenda = document.getElementById('legend');
+            if (legenda) {
+                legenda.setAttribute(
+                    'data-intro',
+                    'Bagian ini merupakan legenda peta.'
+                );
+                legenda.setAttribute('data-step', '3');
+            }
+
+            // Search
+            let search = document.querySelector('.search-layer-input-search');
+            if (search) {
+                search.setAttribute(
+                    'data-intro',
+                    'Gunakan fitur pencarian untuk mencari SPPG atau sekolah. <br>Tekan <b>Enter</b> setelah mengetik nama SPPG atau sekolah.'
+                );
+                search.setAttribute('data-step', '4');
+            }
+
+            // Map utama
+            let mapGuide = document.getElementById('mapGuideCenter');
+            if (mapGuide) {
+                mapGuide.setAttribute(
+                    'data-intro',
+                    'Klik titik SPPG atau sekolah pada peta untuk menampilkan informasi atribut.'
+                );
+                mapGuide.setAttribute('data-step', '5');
+            }
+        };
+    </script>
+</body>
+
+</html>
