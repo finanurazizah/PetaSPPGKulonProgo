@@ -1,17 +1,33 @@
 var wms_layers = [];
 
-
 var lyr_ESRIWorldTopo_0 = new ol.layer.Tile({
-    'title': 'ESRI World Topo',
-    'type': 'base',
-    'opacity': 1.000000,
-
-
+    title: 'ESRI World Topo',
+    type: 'base',
     source: new ol.source.XYZ({
-        attributions: ' ',
         url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}'
     })
 });
+
+var lyr_OSMStandard_1 = new ol.layer.Tile({
+    title: 'OSM Standard',
+    type: 'base',
+    source: new ol.source.XYZ({
+        url: 'http://tile.openstreetmap.org/{z}/{x}/{y}.png'
+    })
+});
+
+var lyr_GoogleSatellite_2 = new ol.layer.Tile({
+    title: 'Google Satellite',
+    type: 'base',
+    source: new ol.source.XYZ({
+        url: 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
+    })
+});
+
+lyr_ESRIWorldTopo_0.setVisible(true);
+lyr_OSMStandard_1.setVisible(false);
+lyr_GoogleSatellite_2.setVisible(false);
+
 var format_Sekolah_SPPG_1 = new ol.format.GeoJSON();
 var features_Sekolah_SPPG_1 = format_Sekolah_SPPG_1.readFeatures(json_Sekolah_SPPG_1,
     { dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857' });
@@ -2192,7 +2208,7 @@ var group_SPPGGalurPandowan = new ol.layer.Group({
 });
 
 lyr_ESRIWorldTopo_0.setVisible(true); lyr_Sekolah_SPPG_1.setVisible(false); lyr_BatasKapanewon_2.setVisible(true); lyr_F_GalurPandowan_4.setVisible(true); lyr_Sekolah_5.setVisible(true); lyr_SPPG_6.setVisible(true); lyr_F_GalurPandowan2_7.setVisible(true); lyr_Sekolah_8.setVisible(true); lyr_SPPG_9.setVisible(true); lyr_F_GalurTirtorahayu2_10.setVisible(true); lyr_Sekolah_11.setVisible(true); lyr_SPPG_12.setVisible(true); lyr_JangkauanPelayanan_13.setVisible(true); lyr_Sekolah_14.setVisible(true); lyr_SPPG_15.setVisible(true); lyr_JangkauanPelayanan_16.setVisible(true); lyr_Sekolah_17.setVisible(true); lyr_SPPG_18.setVisible(true); lyr_JangkauanPelayanan_19.setVisible(true); lyr_Sekolah_20.setVisible(true); lyr_SPPG_21.setVisible(true); lyr_JangkauanPelayanan_22.setVisible(true); lyr_Sekolah_23.setVisible(true); lyr_SPPG_24.setVisible(true); lyr_JangkauanPelayanan_25.setVisible(true); lyr_Sekolah_26.setVisible(true); lyr_SPPG_27.setVisible(true); lyr_JangkauanPelayanan_28.setVisible(true); lyr_Sekolah_29.setVisible(true); lyr_SPPG_30.setVisible(true); lyr_JangkauanPelayanan_31.setVisible(true); lyr_Sekolah_32.setVisible(true); lyr_SPPG_33.setVisible(true); lyr_JangkauanPelayanan_34.setVisible(true); lyr_Sekolah_35.setVisible(true); lyr_SPPG_36.setVisible(true); lyr_JangkauanPelayanan_37.setVisible(true); lyr_Sekolah_38.setVisible(true); lyr_SPPG_39.setVisible(true); lyr_JangkauanPelayanan_40.setVisible(true); lyr_Sekolah_41.setVisible(true); lyr_SPPG_42.setVisible(true); lyr_JangkauanPelayanan_43.setVisible(true); lyr_Sekolah_44.setVisible(true); lyr_SPPG_45.setVisible(true); lyr_JangkauanPelayanan_46.setVisible(true); lyr_Sekolah_47.setVisible(true); lyr_SPPG_48.setVisible(true); lyr_JangkauanPelayanan_49.setVisible(true); lyr_Sekolah_50.setVisible(true); lyr_SPPG_51.setVisible(true); lyr_JangkauanPelayanan_52.setVisible(true); lyr_Sekolah_53.setVisible(true); lyr_SPPG_54.setVisible(true); lyr_JangkauanPelayanan_55.setVisible(true); lyr_Sekolah_56.setVisible(true); lyr_SPPG_57.setVisible(true); lyr_JangkauanPelayanan_58.setVisible(true); lyr_Sekolah_59.setVisible(true); lyr_SPPG_60.setVisible(true); lyr_JangkauanPelayanan_61.setVisible(true); lyr_Sekolah_62.setVisible(true); lyr_SPPG_63.setVisible(true); lyr_JangkauanPelayanan_64.setVisible(true); lyr_Sekolah_65.setVisible(true); lyr_SPPG_66.setVisible(true); lyr_JangkauanPelayanan_67.setVisible(true); lyr_Sekolah_68.setVisible(true); lyr_SPPG_69.setVisible(true); lyr_JangkauanPelayanan_70.setVisible(true); lyr_Sekolah_71.setVisible(true); lyr_SPPG_72.setVisible(true); lyr_JangkauanPelayanan_73.setVisible(true); lyr_Sekolah_74.setVisible(true); lyr_SPPG_75.setVisible(true); lyr_JangkauanPelayanan_76.setVisible(true); lyr_Sekolah_77.setVisible(true); lyr_SPPG_78.setVisible(true); lyr_JangkauanPelayanan_79.setVisible(true); lyr_Sekolah_80.setVisible(true); lyr_SPPG_81.setVisible(true); lyr_JangkauanPelayanan_82.setVisible(true); lyr_Sekolah_83.setVisible(true); lyr_SPPG_84.setVisible(true); lyr_JangkauanPelayanan_85.setVisible(true); lyr_Sekolah_86.setVisible(true); lyr_SPPG_87.setVisible(true); lyr_JangkauanPelayanan_88.setVisible(true); lyr_Sekolah_89.setVisible(true); lyr_SPPG_90.setVisible(true); lyr_JangkauanPelayanan_91.setVisible(true); lyr_Sekolah_92.setVisible(true); lyr_SPPG_93.setVisible(true); lyr_JangkauanPelayanan_94.setVisible(true); lyr_Sekolah_95.setVisible(true); lyr_SPPG_96.setVisible(true); lyr_JangkauanPelayanan_97.setVisible(true); lyr_Sekolah_98.setVisible(true); lyr_SPPG_99.setVisible(true); lyr_JangkauanPelayanan_100.setVisible(true); lyr_Sekolah_101.setVisible(true); lyr_SPPG_102.setVisible(true); lyr_JangkauanPelayanan_103.setVisible(true); lyr_Sekolah_104.setVisible(true); lyr_SPPG_105.setVisible(true); lyr_JangkauanPelayanan_106.setVisible(true); lyr_Sekolah_107.setVisible(true); lyr_SPPG_108.setVisible(true); lyr_JangkauanPelayanan_109.setVisible(true); lyr_Sekolah_110.setVisible(true); lyr_SPPG_111.setVisible(true); lyr_JangkauanPelayanan_112.setVisible(true); lyr_Sekolah_113.setVisible(true); lyr_SPPG_114.setVisible(true); lyr_JangkauanPelayanan_115.setVisible(true); lyr_Sekolah_116.setVisible(true); lyr_SPPG_117.setVisible(true); lyr_JangkauanPelayanan_118.setVisible(true); lyr_Sekolah_119.setVisible(true); lyr_SPPG_120.setVisible(true); lyr_JangkauanPelayanan_121.setVisible(true); lyr_Sekolah_122.setVisible(true); lyr_SPPG_123.setVisible(true); lyr_JangkauanPelayanan_124.setVisible(true); lyr_Sekolah_125.setVisible(true); lyr_SPPG_126.setVisible(true); lyr_JangkauanPelayanan_127.setVisible(true); lyr_Sekolah_128.setVisible(true); lyr_SPPG_129.setVisible(true); lyr_JangkauanPelayanan_130.setVisible(true); lyr_Sekolah_131.setVisible(true); lyr_SPPG_132.setVisible(true);
-var layersList = [lyr_ESRIWorldTopo_0, lyr_BatasKapanewon_2, group_SPPGGalurPandowan, group_SPPGGalurPandowan2, group_SPPGGalurTirtorahayu2, group_SPPGGirimulyoJatimulyo, group_SPPGKalibawangBanjararum, group_SPPGKalibawangBanjarharjo, group_SPPGKalibawangBanjarharjo2, group_SPPGKokapHargorejo, group_SPPGKokapHargowilis, group_SPPGLendahGulurejo, group_SPPGLendahJatirejo, group_SPPGLendahJatirejo2, group_SPPGNanggulanDonomulyo, group_SPPGNanggulanJatisarono, group_SPPGNanggulanTanjungharjo, group_SPPGPanjatan1, group_SPPGPanjatan2, group_SPPGPanjatanBugel, group_SPPGPanjatanTayuban, group_SPPGPengasih2, group_SPPGPengasihKedungsari, group_SPPGPengasihKedungsari3, group_SPPGPengasihMargosari, group_SPPGPengasihMargosari2, group_SPPGPengasihTawangsari, group_SPPGSamigaluhGerbosari, group_SPPGSamigaluhNgargosari, group_SPPGSamigaluhPagerharjo, group_SPPGSentoloKaliagung, group_SPPGSentoloPoldaDIY, group_SPPGSentoloSukoreno, group_SPPGTemonJanten, group_SPPGTemonKarangwuluh, group_SPPGTemonPalihan, group_SPPGWates2, group_SPPGWates3, group_SPPGWatesGadingan, group_SPPGWatesGiripeni, group_SPPGWatesKarangwuni, group_SPPGWatesNgestiharjo, group_SPPGWatesTriharjo, group_SPPGWatesTriharjo2, group_SPPGWatesTriharjo4];
+var layersList = [lyr_ESRIWorldTopo_0, lyr_OSMStandard_1, lyr_GoogleSatellite_2, lyr_BatasKapanewon_2, group_SPPGGalurPandowan, group_SPPGGalurPandowan2, group_SPPGGalurTirtorahayu2, group_SPPGGirimulyoJatimulyo, group_SPPGKalibawangBanjararum, group_SPPGKalibawangBanjarharjo, group_SPPGKalibawangBanjarharjo2, group_SPPGKokapHargorejo, group_SPPGKokapHargowilis, group_SPPGLendahGulurejo, group_SPPGLendahJatirejo, group_SPPGLendahJatirejo2, group_SPPGNanggulanDonomulyo, group_SPPGNanggulanJatisarono, group_SPPGNanggulanTanjungharjo, group_SPPGPanjatan1, group_SPPGPanjatan2, group_SPPGPanjatanBugel, group_SPPGPanjatanTayuban, group_SPPGPengasih2, group_SPPGPengasihKedungsari, group_SPPGPengasihKedungsari3, group_SPPGPengasihMargosari, group_SPPGPengasihMargosari2, group_SPPGPengasihTawangsari, group_SPPGSamigaluhGerbosari, group_SPPGSamigaluhNgargosari, group_SPPGSamigaluhPagerharjo, group_SPPGSentoloKaliagung, group_SPPGSentoloPoldaDIY, group_SPPGSentoloSukoreno, group_SPPGTemonJanten, group_SPPGTemonKarangwuluh, group_SPPGTemonPalihan, group_SPPGWates2, group_SPPGWates3, group_SPPGWatesGadingan, group_SPPGWatesGiripeni, group_SPPGWatesKarangwuni, group_SPPGWatesNgestiharjo, group_SPPGWatesTriharjo, group_SPPGWatesTriharjo2, group_SPPGWatesTriharjo4];
 lyr_Sekolah_SPPG_1.set('fieldAliases', { 'No': 'No', 'NPSN': 'NPSN', 'Sekolah': 'Sekolah', 'Alamat': 'Alamat', 'Kalurahan': 'Kalurahan', 'Status': 'Status', 'Latitude': 'Latitude', 'Longitude': 'Longitude', 'Kapanewon': 'Kapanewon', 'Jenjang': 'Jenjang', 'Siswa': 'Siswa', 'Guru': 'Guru', 'Total': 'Total Porsi', 'SPPG': 'SPPG', 'Waktu(mnt)': 'Waktu (menit)', 'k_waktu': 'Kelas Waktu', 'Easting': 'Easting', 'Northing': 'Northing', 'Radius': 'Radius', 'Layout': 'Layout', 'SPPG_2': 'SPPG_2', 'Kalurahan_': 'Kalurahan_', 'Latitude_2': 'Latitude_2', 'Longitude_': 'Longitude_', 'GoogleMaps': 'GoogleMaps', 'Alamat_2': 'Alamat_2', 'ID': 'ID', 'Easting_2': 'Easting_2', 'Northing_2': 'Northing_2', 'Porsi': 'Porsi', 'Search': 'Search', });
 lyr_BatasKapanewon_2.set('fieldAliases', { 'Kapanewon': 'Kapanewon', });
 lyr_F_GalurPandowan_4.set('fieldAliases', { 'SPPG': 'SPPG', 'Sekolah': 'Sekolah', 'Waktu(mnt)': 'Waktu (menit)', 'k_waktu': 'Kelas Waktu', });
