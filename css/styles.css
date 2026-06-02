@@ -11488,18 +11488,98 @@ header.masthead .masthead-heading {
 }
 
 /* Style tombol Intro.js */
+/* Samakan semua tombol Intro.js (Next, Prev, Done, Skip) */
 .introjs-button,
 .introjs-skipbutton {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  color: #212529;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
   transition: all 0.3s ease !important;
+  cursor: pointer;
 }
 
-/* Hover hanya untuk tombol aktif */
-.introjs-button:not(.introjs-disabled):hover,
+/* Hover semua tombol */
+.introjs-button:hover,
 .introjs-skipbutton:hover {
   background-color: #ffc800 !important;
   border-color: #ffc800 !important;
   color: #212529 !important;
   transform: scale(1.05);
+}
+
+/* Khusus skip biar tidak terlihat “link kecil” */
+.introjs-skipbutton {
+  opacity: 1 !important;
+  text-decoration: none !important;
+}
+
+.introjs-button,
+.introjs-skipbutton {
+  min-width: 70px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Tombol Lewati */
+.introjs-skipbutton {
+  background-color: #e6e6e6 !important;
+  border: 1px solid #000000 !important;
+
+  color: #000000 !important;
+  font-weight: normal !important;
+  font-size: 14px !important;
+
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 14px;
+  border-radius: 6px;
+
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+
+  transform: translate(-6px, 3px);
+
+  /* bayangan */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover jadi kuning + bayangan lebih kuat */
+.introjs-skipbutton:hover {
+  background-color: #ffc800 !important;
+  border-color: #ffc800 !important;
+  color: #212529 !important;
+
+  transform: translate(-6px, 3px) scale(1.05);
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Tombol Kembali saat disabled (step awal) */
+.introjs-prevbutton.introjs-disabled {
+  background-color: #e0e0e0 !important;
+  border: 1px solid #cccccc !important;
+  color: #9e9e9e !important;
+
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  /* ini yang bikin tidak bisa dihover */
+
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+
+/* Pastikan tidak ada efek hover */
+.introjs-prevbutton.introjs-disabled:hover {
+  background-color: #e0e0e0 !important;
+  border: 1px solid #cccccc !important;
+  color: #9e9e9e !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 #map-container-1 {
@@ -11596,4 +11676,13 @@ header.masthead .masthead-heading {
   top: 10px;
   left: 10px;
   z-index: 9999;
+}
+
+/*disclaimer*/
+.disclaimer-text {
+  font-size: 14px;
+  color: #777;
+  font-style: italic;
+  margin-top: 10px;
+  line-height: 1.4;
 }
