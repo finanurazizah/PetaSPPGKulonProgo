@@ -1,6 +1,5 @@
 var wms_layers = [];
 
-
 var lyr_OSMStandard_0 = new ol.layer.Tile({
     'title': 'ESRI World Topo',
     'type': 'base',
@@ -12,6 +11,35 @@ var lyr_OSMStandard_0 = new ol.layer.Tile({
         url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}'
     })
 });
+
+var lyr_OSMStandard_1 = new ol.layer.Tile({
+    'title': 'OSM Standard',
+    'type': 'base',
+    'opacity': 1.000000,
+
+
+    source: new ol.source.XYZ({
+        attributions: '&nbsp;&middot; <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+        url: 'http://tile.openstreetmap.org/{z}/{x}/{y}.png'
+    })
+});
+
+var lyr_GoogleSatellite_2 = new ol.layer.Tile({
+    'title': 'Google Satellite',
+    'type': 'base',
+    'opacity': 1.000000,
+
+
+    source: new ol.source.XYZ({
+        attributions: '&nbsp;&middot; <a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+        url: 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
+    })
+});
+
+lyr_OSMStandard_0.setVisible(true);
+lyr_OSMStandard_1.setVisible(false);
+lyr_GoogleSatellite_2.setVisible(false);
+
 var format_BatasKapanewon_1 = new ol.format.GeoJSON();
 var features_BatasKapanewon_1 = format_BatasKapanewon_1.readFeatures(json_BatasKapanewon_1,
     { dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857' });
@@ -216,7 +244,7 @@ var lyr_SPPG_5 = new ol.layer.Vector({
     <img src="styles/legend/SPPG_5_43.png" /> <br />' });
 
 lyr_OSMStandard_0.setVisible(true); lyr_BatasKapanewon_1.setVisible(true); lyr_Sekolah_2.setVisible(true); lyr_PelayananSPPG_3.setVisible(true); lyr_Sekolah_SPPG_4.setVisible(false); lyr_SPPG_5.setVisible(true);
-var layersList = [lyr_OSMStandard_0, lyr_BatasKapanewon_1, lyr_PelayananSPPG_3, lyr_Sekolah_2, lyr_SPPG_5];
+var layersList = [lyr_OSMStandard_0, lyr_OSMStandard_1, lyr_GoogleSatellite_2, lyr_BatasKapanewon_1, lyr_PelayananSPPG_3, lyr_Sekolah_2, lyr_SPPG_5];
 lyr_BatasKapanewon_1.set('fieldAliases', { 'Kapanewon': 'Kapanewon', });
 lyr_Sekolah_2.set('fieldAliases', { 'Sekolah': 'Sekolah', 'NPSN': 'NPSN', 'Jenjang': 'Jenjang', 'Status': 'Status', 'Alamat': 'Alamat', 'Kalurahan': 'Kalurahan', 'Kapanewon': 'Kapanewon', 'SPPG': 'SPPG', 'Siswa': 'Jumlah Siswa', 'Guru': 'Jumlah Guru', 'Total': 'Jumlah Total', 'No': 'No', 'Latitude': 'Latitude', 'Longitude': 'Longitude', 'Easting': 'Easting', 'Northing': 'Northing', 'Radius': 'Radius', 'Layout': 'Layout', });
 lyr_PelayananSPPG_3.set('fieldAliases', { 'SPPG': 'SPPG', 'Sekolah': 'Sekolah', 'EC_Jarak': 'EC_Jarak', 'NC_Jarak': 'NC_Jarak', 'EXC_Jarak': 'EXC_Jarak', 'XT_Jarak': 'XT_Jarak', 'Jarak_km': 'Jarak_km', 'Layer': 'Layer', 'Path': 'Path', 'Waktu_m': 'Waktu_m', 'K_waktu': 'K_waktu', 'K_jarak': 'K_jarak', 'S_jarak_km': 'S_jarak_km', });
