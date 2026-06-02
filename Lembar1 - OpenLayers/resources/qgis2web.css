@@ -527,29 +527,103 @@ td video {
     transform: scale(1.1);
 }
 
-/* Tombol IntroJS */
+/* =========================
+   TOMBOL UMUM INTRO.JS
+========================= */
 .introjs-button,
 .introjs-skipbutton {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    color: #212529;
+
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 500;
+
+    border-radius: 5px;
+
     transition: all 0.3s ease !important;
+    cursor: pointer;
+
+    text-align: center;
 }
 
-/* Hover tombol IntroJS */
-.introjs-button:not(.introjs-disabled):hover,
+
+/* =========================
+   HOVER SEMUA TOMBOL
+========================= */
+.introjs-button:hover,
 .introjs-skipbutton:hover {
     background-color: #ffc800 !important;
     border-color: #ffc800 !important;
     color: #212529 !important;
-    transform: scale(1.05);
+
+    transform: scale(1.03);
 }
 
-/* Tombol skip */
+
+/* =========================
+   TOMBOL LEWATI
+========================= */
 .introjs-skipbutton {
-    font-size: 12px !important;
-    opacity: 0.7;
+    background-color: #e6e6e6 !important;
+    border: 1px solid #000000 !important;
+    color: #000000 !important;
+
+    font-weight: normal !important;
+    font-size: 10px !important;
+
+    /* dibuat persegi panjang pendek */
+    padding: 0.01px 2px !important;
+
+    border-radius: 3px;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    line-height: 1.1;
+
+    transform: translate(-4px, 2px);
+
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
 }
 
+/* Hover tombol Lewati */
 .introjs-skipbutton:hover {
-    opacity: 1;
+    background-color: #ffc800 !important;
+    border-color: #ffc800 !important;
+    color: #212529 !important;
+
+    transform: translate(-4px, 2px) scale(1.02);
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================
+   TOMBOL KEMBALI DISABLED
+========================= */
+.introjs-prevbutton.introjs-disabled {
+    background-color: #e0e0e0 !important;
+    border: 1px solid #cccccc !important;
+    color: #9e9e9e !important;
+
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+
+    opacity: 1 !important;
+    box-shadow: none !important;
+}
+
+/* Hover disabled tetap mati */
+.introjs-prevbutton.introjs-disabled:hover {
+    background-color: #e0e0e0 !important;
+    border: 1px solid #cccccc !important;
+    color: #9e9e9e !important;
+
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 /* Tooltip */
