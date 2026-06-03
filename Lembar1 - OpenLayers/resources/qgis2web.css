@@ -695,20 +695,20 @@ td video {
 }
 
 .legend-img-sekolah {
-    width: 5px;
+    width: 8px;
     /* lebih kecil */
     height: auto;
     margin-right: 10px;
 }
 
 .legend-img-pelayanan {
-    width: 10px;
+    width: 15px;
     height: auto;
     margin-right: 10px;
 }
 
 .legend-img-batas {
-    width: 10px;
+    width: 15px;
     height: auto;
     margin-right: 10px;
 }
