@@ -702,8 +702,11 @@ td video {
 }
 
 .legend-img-pelayanan {
+    display: inline-block;
     width: 15px;
-    height: auto;
+    height: 2px;
+    background-color: rgb(241, 133, 0);
+    border: 0.1px solid black;
     margin-right: 10px;
 }
 
