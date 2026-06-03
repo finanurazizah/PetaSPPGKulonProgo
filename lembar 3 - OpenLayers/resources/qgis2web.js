@@ -515,13 +515,13 @@ var Abstract = new ol.control.Control({
             window.showAbstract = function () {
                 linkElement.classList.remove("project-abstract");
                 linkElement.classList.add("project-abstract-uncollapsed");
-                linkElement.innerHTML = 'Tanggal Pengambilan Data: 2 Mei 2026<br />Sumber Data                    : Disdikpora Kulon Progo';
+                linkElement.innerHTML = 'Tanggal Perolehan Data: 2 Mei 2026<br />Sumber Data                    : Disdikpora Kulon Progo';
             }
 
             hideAbstract();
         } else {
             linkElement.classList.add("project-abstract-uncollapsed");
-            linkElement.innerHTML = 'Tanggal Pengambilan Data: 2 Mei 2026<br />Sumber Data                    : Disdikpora Kulon Progo';
+            linkElement.innerHTML = 'Tanggal Perolehan Data: 2 Mei 2026<br />Sumber Data                    : Disdikpora Kulon Progo';
         }
 
         titleElement.appendChild(linkElement);
