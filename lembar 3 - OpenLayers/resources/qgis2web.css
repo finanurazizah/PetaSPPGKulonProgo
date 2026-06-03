@@ -683,27 +683,27 @@ td video {
 }
 
 .legend-img-cepat {
-    width: 10px;
+    width: 15px;
     height: auto;
     margin-right: 10px;
 }
 
 .legend-line-sedang {
     display: inline-block;
-    width: 10px;
+    width: 15px;
     height: 0;
     border-top: 2px solid rgba(255, 165, 0, 1.0);
     margin-right: 10px;
 }
 
 .legend-img-lama {
-    width: 10px;
+    width: 15px;
     height: auto;
     margin-right: 10px;
 }
 
 .legend-img-batas {
-    width: 10px;
+    width: 15px;
     height: auto;
     margin-right: 10px;
 }
@@ -722,8 +722,8 @@ td video {
 }
 
 .legend-sekolah-circle {
-    width: 5px;
-    height: 5px;
+    width: 8px;
+    height: 8px;
 
     background: rgba(240, 244, 195, 1.0);
     border: 1px solid rgba(35, 35, 35, 1.0);
